@@ -1,0 +1,5 @@
+exceptions
+| where timestamp > datetime_add("day", -90, now())
+| where * has "fatal"
+| summarize count() by cloud_RoleName
+| render barchart ;
