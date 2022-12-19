@@ -1,3 +1,3 @@
-# Ad_Hoc_Kusto_Queries
+# Ad-Hoc Kusto Queries
 
 General Kusto queries
