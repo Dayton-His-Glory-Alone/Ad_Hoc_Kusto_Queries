@@ -1,0 +1,5 @@
+union isfuzzy=true exceptions
+| where timestamp > datetime("2023-04-10T14:33:23.485Z") and timestamp < datetime("2023-04-17T14:33:23.485Z")
+| where cloud_RoleName in ("OnCallForwarding")
+| order by timestamp desc
+| take 100
