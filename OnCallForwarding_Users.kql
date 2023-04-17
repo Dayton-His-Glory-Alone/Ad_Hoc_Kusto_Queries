@@ -1,0 +1,8 @@
+customEvents
+| where name == "ApplicationStarted" and customDimensions.DeveloperMode != true and cloud_RoleName == "OnCallForwarding"
+| summarize max(application_Version), format_datetime(max(timestamp), 'yyyy-MM-dd HH:mm:ss') by cloud_RoleName, user_Id
+| project-rename
+    Application = cloud_RoleName,
+    Version = max_application_Version,
+    LastLogin = max_timestamp
+| sort by Application asc, user_Id asc
